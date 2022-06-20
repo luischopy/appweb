@@ -1,3 +1,10 @@
+<?php 
+session_start();
+if(!isset($_SESSION['usuario'])){
+    header('Location:../index.php');
+}
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -9,7 +16,8 @@
 
     <!-- Bootstrap CSS v5.2.0-beta1 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-
+    <!-- Bootstrap Icon v1.8.3 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 </head>
 
 <body>
@@ -25,7 +33,7 @@
                 <a class="nav-link" href="vista_cursos.php">Cursos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Cerrar sesiòn</a>
+                <a class="nav-link" href="cerrar.php">Cerrar sesiòn</a>
             </li>
 
         </ul>

@@ -1,3 +1,18 @@
+<?php 
+session_start();
+if($_POST){
+  $mensaje='Usuario o contraseña incorrecto.';
+
+  if($_POST['usuario']=='admin'&& $_POST['password']=='admin'){
+    $_SESSION['usuario']=$_POST['usuario'];
+    
+   header('location:secciones/index.php');
+  }
+}
+
+
+
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -21,13 +36,20 @@
                  
             <div class="col-md-4">
             <br>
-            <form action="secciones/index.php" method="post">
+            <form action="" method="post">
                 <div class="card">
                     <div class="card-header">
                     inicio de sessión
 
                     </div>
                  <div class="card-body">
+
+                   <?php if(isset($mensaje)) {?>
+                  <div class="alert alert-danger" role="alert">
+                    <strong><?php  echo $mensaje;?></strong>
+                  </div>
+                  <?php  }   ?>
+                  
                     <div class="mb-3">
                        <label for="" class="form-label">Usuario</label>
                      <input type="text"
@@ -37,7 +59,7 @@
                     <div class="mb-3">
                        <label for="" class="form-label">Contraseña</label>
                        <input type="password"
-                         class="form-control" name="contrasenia" id="contrasenia" aria-describedby="helpId" placeholder="password">
+                         class="form-control" name="password" id="password" aria-describedby="helpId" placeholder="password">
                        <small id="helpId" class="form-text text-muted">Escriba su contraseña</small>
                      </div>
                      <input name="" id="" class="btn btn-primary" type="submit" value="Iniciar sesion">
